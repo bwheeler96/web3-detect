@@ -6,7 +6,5 @@
   "author": "Brian Wheeler",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^3.5.2",
-    "es6-promisify": "^6.0.0"
   }
 }

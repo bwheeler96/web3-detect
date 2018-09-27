@@ -1,7 +1,5 @@
 'use strict'
 
-const { promisifyAll } = require('bluebird')
-
 module.exports.detect = function() {
     if (typeof window.web3 === undefined) {
         return Promise.resolve({
