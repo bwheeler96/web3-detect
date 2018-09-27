@@ -1,0 +1,12 @@
+{
+  "name": "web3-detect",
+  "version": "1.0.0",
+  "description": "Detect injected web3 and the type of environment injected.",
+  "main": "index.js",
+  "author": "Brian Wheeler",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.2",
+    "es6-promisify": "^6.0.0"
+  }
+}
