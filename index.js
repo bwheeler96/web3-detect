@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports.detect = function() {
-    if (typeof window.web3 === undefined) {
+    if (typeof window.web3 === 'undefined') {
         return Promise.resolve({
             walletAvailable: false
         })
@@ -23,18 +23,20 @@ module.exports.detect = function() {
             })
         })
         .then(() => {
-            web3.eth.getAccounts((err, accounts) => {
-                if (err)
-                    reject(err)
-                else {
-                    response.accounts = accounts
-                    if (accounts.length === 0) {
-                        response.walletUnlocked = false
-                    } else {
-                        response.walletUnlocked = true
+            return new Promise((resolve, reject) => {
+                web3.eth.getAccounts((err, accounts) => {
+                    if (err)
+                        reject(err)
+                    else {
+                        response.accounts = accounts
+                        if (accounts.length === 0) {
+                            response.walletUnlocked = false
+                        } else {
+                            response.walletUnlocked = true
+                        }
+                        resolve(response)
                     }
-                    resolve(response)
-                }
+                })
             })
         })
     }
